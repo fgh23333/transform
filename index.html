@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* @keyframes change1 {
+            0% {
+                transform: translateZ(100px);
+            }
+            50% {
+                transform: translateZ(200px);
+            }
+            100% {
+                transform: translateZ(100px);
+            }
+        } */
+
+        /* @keyframes change2 {
+            0% {
+                transform: translateZ(-100px);
+            }
+            50% {
+                transform: translateZ(-200px);
+            }
+            100% {
+                transform: translateZ(-100px);
+            }
+        } */
+
+        /* @keyframes change3 {
+            0% {
+                transform: rotateX(90deg) translateZ(100px);
+            }
+            50% {
+                transform: rotateX(90deg) translateZ(200px);
+            }
+            100% {
+                transform: rotateX(90deg) translateZ(100px);
+            }
+        } */
+
+        /* @keyframes change4 {
+            0% {
+                transform: rotateX(90deg) translateZ(-100px);
+            }
+            50% {
+                transform: rotateX(90deg) translateZ(-200px);
+            }
+            100% {
+                transform: rotateX(90deg) translateZ(-100px);
+            }
+        } */
+
+        /* @keyframes change5 {
+            0% {
+                transform: rotateY(90deg) translateZ(100px);
+            }
+            50% {
+                transform: rotateY(90deg) translateZ(200px);
+            }
+            100% {
+                transform: rotateY(90deg) translateZ(100px);
+            }
+        } */
+
+        /* @keyframes change6 {
+            0% {
+                transform: rotateY(90deg) translateZ(-100px);
+            }
+            50% {
+                transform: rotateY(90deg) translateZ(-200px);
+            }
+            100% {
+                transform: rotateY(90deg) translateZ(-100px);
+            }
+        } */
+
+        @keyframes changeback {
+            0% {
+                transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateY(0px);
+            }
+
+            25% {
+                transform: rotateX(0deg) rotateY(-90deg) rotateZ(0deg) translateY(-50px);
+            }
+
+            50% {
+                transform: rotateX(0deg) rotateY(-180deg) rotateZ(0deg) translateY(0px);
+            }
+
+            75% {
+                transform: rotateX(0deg) rotateY(-270deg) rotateZ(0deg) translateY(50px);
+            }
+
+            100% {
+                transform: rotateX(0deg) rotateY(-360deg) rotateZ(0deg) translateY(0px);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            margin: 200px auto;
+            perspective: 1000px;
+        }
+
+        ul {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: changeback 3s linear 0s infinite;
+        }
+
+        li {
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        ul li:nth-child(1) {
+            background: url(l.jpg) no-repeat;
+            background-position: center;
+            background-size: cover;
+            transform: translateZ(100px);
+            /* animation: change1 4s linear 0s infinite; */
+        }
+
+        ul li:nth-child(2) {
+            background: url(l.jpg) no-repeat;
+            background-position: center;
+            background-size: cover;
+            transform: translateZ(-100px);
+            /* animation: change2 4s linear 0s infinite; */
+        }
+
+        ul li:nth-child(3) {
+            background: url(l.jpg) no-repeat;
+            background-position: center;
+            background-size: cover;
+            transform: rotateX(90deg) translateZ(100px);
+            /* animation: change3 4s linear 0s; */
+            /* animation-iteration-count: infinite; */
+        }
+
+        ul li:nth-child(4) {
+            background: url(l.jpg) no-repeat;
+            background-position: center;
+            background-size: cover;
+            transform: rotateX(90deg) translateZ(-100px);
+            /* animation: change4 4s linear 0s; */
+            /* animation-iteration-count: infinite; */
+        }
+
+        ul li:nth-child(5) {
+            background: url(l.jpg) no-repeat;
+            background-position: center;
+            background-size: cover;
+            transform: rotateY(90deg) translateZ(100px);
+            /* animation: change5 4s linear 0s; */
+            /* animation-iteration-count: infinite; */
+        }
+
+        ul li:nth-child(6) {
+            background: url(l.jpg) no-repeat;
+            background-position: center;
+            background-size: cover;
+            transform: rotateY(90deg) translateZ(-100px);
+            /* animation: change6 4s linear 0s; */
+            /* animation-iteration-count: infinite; */
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function () {
+            setInterval("toggleSound()", 100);
+        }
+
+        function toggleSound() {
+            var music = document.getElementById("vd");//获取ID  
+
+            if (music.paused) { //判读是否播放  
+                music.paused = false;
+                music.play(); //没有就播放 
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+    <audio loop="loop" src="./Funky Town.mp3" id="vd"></audio>
+</body>
+
+</html>
