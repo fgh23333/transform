@@ -201,15 +201,42 @@
             }
         }
     </script>
-    <!-- <script>
-        $(function () {
-                触屏即加载音乐
-                document.addEventListener('touchstart', function() {
-                document.getElementById('vd').play()
-                })
-        })        -->
-    
+    <script>
+        //设置背景音乐dom 并自动播放
+    var bgaudio = document.getElementById('bgAudio'); //创建一个audio播放器dom
+    var sgaudio = document.getElementById('sgAudio');
+    //android  ios 内部原因 为了节省流量，规定不自动播放音频视频
+    //--创建页面监听，等待微信端页面加载完毕 触发音频播放
+    // document.addEventListener('DOMContentLoaded', function () {
+    //     function audioAutoPlay() {
+    //         bgaudio.play();
+    //         document.addEventListener("WeixinJSBridgeReady", function () {
+    //             bgaudio.play();
+    //         }, false);
+    //     }
+    //     audioAutoPlay();
+    // });
+    //--创建触摸监听，当浏览器打开页面时，触摸屏幕触发事件，进行音频播放
+    document.getElementById('playIdIcon').addEventListener('touchstart', function () { 
+        audioClickPlay();
+    });
+    document.getElementById('pauseIdIcon').addEventListener('touchstart', function () {
+        audioClickPause();
+    });
+    function audioClickPlay() {
+        $("#pauseIdIcon").css("display","block");
+        $("#playIdIcon").css("display","none");
+        bgaudio.pause();
+        sgaudio.play();
+    }
+    function audioClickPause() {
+        $("#pauseIdIcon").css("display","none");
+        $("#playIdIcon").css("display","block");
+        sgaudio.pause();
+        bgaudio.play();
+    }
     </script>
+    
 </head>
 
 <body>
